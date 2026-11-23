@@ -1,0 +1,23 @@
+{
+  "name": "benim-claude-paketim",
+  "owner": {
+    "name": "ismailartun0"
+  },
+  "plugins": [
+    {
+      "name": "ponytail",
+      "description": "Ponytail eklentisi",
+      "source": "./eklentiler/ponytail"
+    },
+    {
+      "name": "agent-skills",
+      "description": "Addy Osmani Agent Skills paketi",
+      "source": "./eklentiler/agent-skills"
+    },
+    {
+      "name": "claudex-loop",
+      "description": "Claudex Loop eklentisi",
+      "source": "./eklentiler/claudex-loop"
+    }
+  ]
+}
