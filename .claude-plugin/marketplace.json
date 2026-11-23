@@ -7,17 +7,17 @@
     {
       "name": "ponytail",
       "description": "Ponytail eklentisi",
-      "source": "./eklentiler/ponytail"
+      "source": "./plugins/ponytail"
     },
     {
       "name": "agent-skills",
       "description": "Addy Osmani Agent Skills paketi",
-      "source": "./eklentiler/agent-skills"
+      "source": "./plugins/agent-skills"
     },
     {
-      "name": "claudex-loop",
-      "description": "Claudex Loop eklentisi",
-      "source": "./eklentiler/claudex-loop"
+      "name": "graphify",
+      "description": "Graphify eklentisi",
+      "source": "./plugins/graphify"
     }
   ]
 }
