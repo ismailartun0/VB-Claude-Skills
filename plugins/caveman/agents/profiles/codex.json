@@ -1,0 +1,28 @@
+{
+  "schema_version": "1",
+  "id": "codex",
+  "display_name": "OpenAI Codex CLI",
+  "vendor": "OpenAI",
+  "homepage": "https://developers.openai.com/codex",
+  "binary_names": ["codex"],
+  "args": [],
+  "install": "npm i -g @openai/codex",
+  "wire_protocol": "openai-responses",
+  "injection": {
+    "method": "env",
+    "env": {}
+  },
+  "skills": {
+    "format": "skill-md",
+    "user_dirs": ["~/.codex/skills"],
+    "project_dirs": []
+  },
+  "command_hook": { "method": "codex-pretooluse", "file": "~/.codex/AGENTS.md" },
+  "attribution": { "header": "x-cave-agent" },
+  "tested_agent_version": "0.171.0",
+  "injection_completeness": "code-only",
+  "last_verified_at": "2026-11-21",
+  "verified_by": "Local macOS arm64 binary and route probe (@openai/codex 0.171.0, agents/probe-installed.mjs: --version and --help exit 0): from a scratch HOME and CODEX_HOME with config.toml model gpt-5.5 and model_provider caveman, `codex exec --skip-git-repo-check --ephemeral` sent POST /w/codex/v1/responses with dummy bearer auth and originator codex_exec; scripted SSE reply consumed, exit 0. No subscription, compression, live-provider, or task-quality verification",
+  "fallback": "generic-env",
+  "maintainer": null
+}

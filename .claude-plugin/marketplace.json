@@ -18,6 +18,21 @@
       "name": "graphify",
       "description": "Graphify eklentisi",
       "source": "./plugins/graphify"
+    },
+    {
+      "name": "caveman",
+      "description": "Caveman eklentisi",
+      "source": "./plugins/caveman"
+    },
+    {
+      "name": "superpowers",
+      "description": "Jesse Vincent Superpowers paketi",
+      "source": "./plugins/superpowers"
+    },
+    {
+      "name": "andrej-karpathy-skills",
+      "description": "Andrej Karpathy kodlama yönergeleri",
+      "source": "./plugins/andrej-karpathy-skills"
     }
   ]
 }

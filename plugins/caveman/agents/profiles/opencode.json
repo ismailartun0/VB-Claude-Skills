@@ -1,0 +1,76 @@
+{
+  "schema_version": "1",
+  "id": "opencode",
+  "display_name": "opencode",
+  "vendor": "sst",
+  "homepage": "https://opencode.ai/docs/config",
+  "binary_names": ["opencode", "opencode2"],
+  "args": [],
+  "install": "npm i -g opencode-ai",
+  "wire_protocol": "openai-chat",
+  "injection": {
+    "method": "config-env-content",
+    "env_var": "OPENCODE_CONFIG_CONTENT",
+    "config_content": {
+      "local": {
+        "$schema": "https://opencode.ai/config.json",
+        "provider": {
+          "openai": {
+            "options": {
+              "baseURL": "{{cave_base_url}}/v1",
+              "headers": { "X-Cave-Agent": "opencode" }
+            }
+          },
+          "anthropic": {
+            "options": {
+              "baseURL": "{{cave_base_url}}/v1",
+              "headers": { "X-Cave-Agent": "opencode" }
+            }
+          },
+          "opencode-go": {
+            "options": {
+              "baseURL": "{{cave_base_url}}/compat/opencode-go/v1",
+              "headers": { "X-Cave-Agent": "opencode" }
+            }
+          }
+        }
+      },
+      "managed": {
+        "$schema": "https://opencode.ai/config.json",
+        "provider": {
+          "caveman": {
+            "npm": "@ai-sdk/openai-compatible",
+            "name": "Caveman Gateway",
+            "options": {
+              "baseURL": "{{cave_base_url}}/v1",
+              "apiKey": "{env:CAVE_API_KEY}",
+              "headers": {
+                "x-cave-upstream-key": "{env:OPENAI_API_KEY}",
+                "X-Cave-Agent": "opencode"
+              }
+            },
+            "models": {
+              "gpt-5.5": {
+                "name": "GPT-5.5 (via Caveman)",
+                "limit": { "context": 1050000, "output": 32768 }
+              },
+              "gpt-5.4-mini": {
+                "name": "GPT-5.4 mini (via Caveman)",
+                "limit": { "context": 400000, "output": 16384 }
+              }
+            }
+          }
+        },
+        "model": "caveman/gpt-5.5"
+      }
+    }
+  },
+  "command_hook": { "method": "opencode-plugin" },
+  "attribution": { "header": "X-Cave-Agent" },
+  "tested_agent_version": "1.19.6",
+  "injection_completeness": "declarative",
+  "last_verified_at": "2026-11-21",
+  "verified_by": "Local macOS arm64 binary and route probes (opencode-ai 1.19.6 and opencode v2.0.22, agents/probe-installed.mjs: --version and --help exit 0): with this profile's OPENCODE_CONFIG_CONTENT local overlay from a scratch HOME/XDG, `opencode run --pure -m openai/gpt-5.4` (1.19.6) reached POST /w/opencode/v1/responses twice carrying X-Cave-Agent: opencode and completed (exit 0); opencode v2.0.22 with `--standalone` also reached POST and WebSocket upgrade GET /w/opencode/v1/responses carrying X-Cave-Agent: opencode and completed (exit 0). No live provider or compression verification",
+  "fallback": "generic-env",
+  "maintainer": null
+}
